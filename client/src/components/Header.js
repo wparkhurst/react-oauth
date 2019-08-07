@@ -8,11 +8,7 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return (
-          <li>
-            <a href="/auth/google">Login With Google</a>
-          </li>
-        );
+        return;
       default:
         return (
           <li>
@@ -23,12 +19,15 @@ class Header extends Component {
   }
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <Link to={this.props.auth ? "/surveys" : "/"} className="brand-logo">
+      <nav className="header">
+        <div className="nav-wrapper blue-grey darken-1">
+          <Link
+            to={this.props.auth ? "/surveys" : "/"}
+            className="brand-logo center"
+          >
             App
           </Link>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <ul id="nav-mobile" className="right">
             {this.renderContent()}
           </ul>
         </div>

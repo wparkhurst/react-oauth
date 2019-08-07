@@ -1,0 +1,14 @@
+body {
+  background: #263238;
+  background-size: cover;
+  color: #ffffff;
+}
+.card,
+.grey.darken-1 {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+@media (min-width: 600px) {
+  .login {
+    padding-top: 70px;
+  }
+}

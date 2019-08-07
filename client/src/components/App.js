@@ -5,13 +5,31 @@ import * as actions from "../actions";
 
 import Header from "./Header";
 import Landing from "./Landing";
-
-const Dashboard = () => <h2>Dashboard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
+import Dashboard from "./Dashboard";
+import SurveyNew from "./SurveyNew";
+import Login from "./Login";
+import Spinner from "./Spinner";
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+  }
+
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return <Spinner />;
+      case false:
+        return <Login />;
+      default:
+        return (
+          <div>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/surveys" component={Dashboard} />
+            <Route path="/surveys/new" component={SurveyNew} />
+          </div>
+        );
+    }
   }
 
   render() {
@@ -20,9 +38,7 @@ class App extends Component {
         <BrowserRouter>
           <div className="container">
             <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
-            <Route path="/surveys/new" component={SurveyNew} />
+            {this.renderContent()}
           </div>
         </BrowserRouter>
       </div>
@@ -30,7 +46,11 @@ class App extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { auth: state.auth };
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(App);

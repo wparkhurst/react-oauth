@@ -1,0 +1,8 @@
+html,
+body {
+  height: 100%;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+}
