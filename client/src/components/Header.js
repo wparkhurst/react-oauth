@@ -22,7 +22,7 @@ class Header extends Component {
       <nav className="header">
         <div className="nav-wrapper blue-grey darken-1">
           <Link
-            to={this.props.auth ? "/surveys" : "/"}
+            to={this.props.auth ? "/dashboard" : "/"}
             className="brand-logo center"
           >
             App
