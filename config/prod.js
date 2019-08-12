@@ -6,5 +6,7 @@ module.exports = {
   azureTenantID: process.env.AZURE_TENANT_ID,
   azureResourceID: process.env.AZURE_RESOURCE_ID,
   mongoURI: process.env.MONGO_URI,
-  cookieKey: process.env.COOKIE_KEY
+  cookieKey: process.env.COOKIE_KEY,
+  stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  stripeSecretKey: process.env.STRIPE_SECRET_KEY
 };
